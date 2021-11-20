@@ -825,22 +825,6 @@ end
 --     Source Elite     --
 function Sajadmoned(chat_id, user_id, msg_id, text, offset, length) local tt = DevSajad:get(Elite..'endmsg') or '' tdcli_function ({ ID = "SendMessage", chat_id_ = chat_id, reply_to_message_id_ = msg_id, disable_notification_ = 0, from_background_ = 1, reply_markup_ = nil, input_message_content_ = { ID = "InputMessageText", text_ = text..'\n\n'..tt, disable_web_page_preview_ = 1, clear_draft_ = 0, entities_ = {[0]={ ID="MessageEntityMentionName", offset_=offset, length_=length, user_id_=user_id }, }, }, }, dl_cb, nil) end
 --     Source Elite     --
-function SourceCh(msg) 
-local url,res = https.request('https://api-Elite.ml/Elite/SourceCh.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.ChatMember.Elite ~= true then
-Var = false
-Text = "*•︙عذرا لاتستطيع استخدام البوت !\n•︙عليك الاشتراك في قناة السورس اولا :*"
-keyboard = {} 
-keyboard.inline_keyboard = {{{text="• 𝗗𝗮𝘃𝗶𝗱 : 𝗧𝗲𝗮𝗠 .",url="t.me/h2iia"}}} 
-Msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendMessage?chat_id='..msg.chat_id_..'&text=' .. URL.escape(Text).."&reply_to_message_id="..Msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-else
-Var = true
-end
-return Var
-end
---     Source Elite     --
 function ChCheck(msg)
 local var = true 
 if DevSajad:get(Elite.."Sajad:ChId") then
@@ -4537,18 +4521,18 @@ DevSajad:set(Elite..'Sajad:viewget'..msg.sender_user_id_,true)
 Dev_Sajad(msg.chat_id_, msg.id_, 1, '•︙حسنا قم باعادة توجيه للمنشور الذي تريدني حساب مشاهداته', 1, 'md')
 end
 --     Source Elite     --
-if text == "سورس" and SourceCh(msg) or text == "السورس" and SourceCh(msg) or text == "يا سورس" and SourceCh(msg) or text == "↫  السورس •" and SourceCh(msg) then
+if text == "سورس" and ChCheck(msg) or text == "السورس" and ChCheck(msg) or text == "يا سورس" and ChCheck(msg) or text == "↫  السورس •" and ChCheck(msg) then
 Text = [[
 Welcome To Source
 •︙[Elite Team](https://t.me/h2iia)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '• Source Channel',url="https://t.me/h2iia"}},
-{{text = '• Developer',url="t.me/tiv00"},{text = '• Tws Elite',url="https://t.me/W555Bot"}},{{text= '• Support Source .',url="https://t.me/joinchat/L980Ig8wQnAyN2Vi"}}
+{{text = '• Source Channel',url="https://t.me/h2iia"},{text = '• Updata Channel',url="t.me/f2iil"}},
+{{text = '• Developer',url="t.me/tiv00"}}
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/X6UX6&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/h2iia&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 --     Source Elite     --
@@ -9392,7 +9376,7 @@ keyboard.inline_keyboard = {
 {{text = '• Elite Team .',url="t.me/h2iia"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/GifElite/'..Sajad..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/GifDavid/'..Sajad..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Elite     --
 if text == "تفعيل ميمز" and Manager(msg) and ChCheck(msg) or text == "تفعيل الميمز" and Manager(msg) and ChCheck(msg) then
@@ -9413,7 +9397,7 @@ keyboard.inline_keyboard = {
 {{text = '• Elite Team .',url="t.me/h2iia"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/MemzElite/'..Sajad..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/MemzDavid/'..Sajad..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Elite     --
 if text == "تفعيل غنيلي" and Manager(msg) and ChCheck(msg) then
@@ -9434,7 +9418,7 @@ keyboard.inline_keyboard = {
 {{text = '• Elite Team .',url="t.me/h2iia"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosElite/'..Sajad..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/AudiosDavid/'..Sajad..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Elite     --
 if text == "تفعيل الاغاني" and Manager(msg) and ChCheck(msg) or text == "تفعيل اغنيه" and Manager(msg) and ChCheck(msg) then
@@ -11254,7 +11238,7 @@ if SecondSudo(msg) then
 if text == "تحديث السورس" and ChCheck(msg) or text == "تحديث سورس" and ChCheck(msg) or text == "↫ تحديث السورس •" and ChCheck(msg) then 
 Dev_Sajad(msg.chat_id_, msg.id_, 1, '•︙جاري تحديث سورس اليت', 1, 'md') 
 os.execute('rm -rf Elite.lua') 
-os.execute('wget https://raw.githubusercontent.com/EliteTeam8/Elite/main/Elite.lua') 
+os.execute('wget https://raw.githubusercontent.com/SRC-ELITE/Elite/main/Elite.lua') 
 dofile('Elite.lua') 
 io.popen("rm -rf ../.telegram-cli/*")
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
@@ -11432,7 +11416,7 @@ else
 Dev_Sajad(msg.chat_id_, msg.id_, 1, '•︙لم يتم تعيين قناة الاشتراك الاجباري \n•︙ارسل ↫ تعيين قناة الاشتراك للتعيين ', 1, 'md')
 end end end end
 --     Source Elite     --
-if text == 'القناة' and SourceCh(msg) or text == 'قناة السورس' and SourceCh(msg) or text == 'قناه السورس' and SourceCh(msg) or text == 'قنات السورس' and SourceCh(msg) or text == '↫ قناة السورس •' and SourceCh(msg) then 
+if text == 'القناة' and ChCheck(msg) or text == 'قناة السورس' and ChCheck(msg) or text == 'قناه السورس' and ChCheck(msg) or text == 'قنات السورس' and ChCheck(msg) or text == '↫ قناة السورس •' and ChCheck(msg) then 
 Text = [[
 •︙[قناة السورس](https://t.me/h2iia)
 ]]
@@ -11445,7 +11429,7 @@ https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' ..
 return false
 end
 --     Source Elite     --
-if text == "مبرمج السورس" and SourceCh(msg) or text == "مطور السورس" and SourceCh(msg) or text == "وين المبرمج" and SourceCh(msg) or text == "المبرمج" and SourceCh(msg) or text == "↫ مبرمج السورس •" and SourceCh(msg) then 
+if text == "مبرمج السورس" and ChCheck(msg) or text == "مطور السورس" and ChCheck(msg) or text == "وين المبرمج" and ChCheck(msg) or text == "المبرمج" and ChCheck(msg) or text == "↫ مبرمج السورس •" and ChCheck(msg) then 
 Text = [[
 •︙[مبرمج السورس](https://t.me/tiv00)
 ]]
