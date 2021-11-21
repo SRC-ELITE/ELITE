@@ -1537,6 +1537,8 @@ DevSajad:set(Elite.."Set:Cmd:Group:New1"..msg.chat_id_..":ر","الرابط")
 DevSajad:sadd(Elite.."List:Cmd:Group:New"..msg.chat_id_,"ر")
 DevSajad:set(Elite.."Set:Cmd:Group:New1"..msg.chat_id_..":رر","ردود المدير")
 DevSajad:sadd(Elite.."List:Cmd:Group:New"..msg.chat_id_,"رر")
+DevSajad:set(Elite.."Set:Cmd:Group:New1"..msg.chat_id_..":تغ","تغير الايدي")
+DevSajad:sadd(Elite.."List:Cmd:Group:New"..msg.chat_id_,"تغ")
 DevSajad:set(Elite.."Set:Cmd:Group:New1"..msg.chat_id_..":،،","مسح المكتومين")
 DevSajad:sadd(Elite.."List:Cmd:Group:New"..msg.chat_id_,"،،")
 DevSajad:set(Elite.."Set:Cmd:Group:New1"..msg.chat_id_..":رد","اضف رد")
@@ -1549,7 +1551,7 @@ DevSajad:set(Elite.."Set:Cmd:Group:New1"..msg.chat_id_..":غ","غنيلي")
 DevSajad:sadd(Elite.."List:Cmd:Group:New"..msg.chat_id_,"غ")
 DevSajad:set(Elite.."Set:Cmd:Group:New1"..msg.chat_id_..":#","مسح قائمه العام")
 DevSajad:sadd(Elite.."List:Cmd:Group:New"..msg.chat_id_,"#")
-send(msg.chat_id_, msg.id_,"•︙تم ترتيب الاوامر بالشكل التالي ~\n•︙ ايدي - ا .\n•︙ رفع مميز - م .\n•︙رفع ادمن - اد .\n•︙ رفع مدير - مد . \n•︙ رفع منشى - من . \n•︙ رفع منشئ الاساسي - اس  .\n•︙ رفع مطور - مط .\n•︙رفع مطور ثانوي - ثانوي .\n•︙ تنزيل الكل - تك .\n•︙ تعطيل الايدي بالصوره - تعط .\n•︙ تفعيل الايدي بالصوره - تفع .\n•︙ الرابط - ر .\n•︙ ردود المدير - رر .\n•︙ مسح المكتومين - ،، .\n•︙ اضف رد - رد .\n•︙ مسح سحكاتي - سح .\n•︙ مسح رسائلي - رس .\n•︙ غنيلي - غ .\n•︙مسح قائمه العام - #")  
+send(msg.chat_id_, msg.id_,"•︙تم ترتيب الاوامر بالشكل التالي ~\n•︙ ايدي - ا .\n•︙ رفع مميز - م .\n•︙رفع ادمن - اد .\n•︙ رفع مدير - مد . \n•︙ رفع منشى - من . \n•︙ رفع منشئ الاساسي - اس  .\n•︙ رفع مطور - مط .\n•︙رفع مطور ثانوي - ثانوي .\n•︙ تنزيل الكل - تك .\n•︙ تعطيل الايدي بالصوره - تعط .\n•︙ تفعيل الايدي بالصوره - تفع .\n•︙ الرابط - ر .\n•︙ ردود المدير - رر .\n•︙ تغير الايدي - تغ .\n•︙ مسح المكتومين - ،، .\n•︙ اضف رد - رد .\n•︙ مسح سحكاتي - سح .\n•︙ مسح رسائلي - رس .\n•︙ غنيلي - غ .\n•︙مسح قائمه العام - #")  
 end
 if text == "اضف امر" and ChCheck(msg) or text == "اضافة امر" and ChCheck(msg) or text == "اضافه امر" and ChCheck(msg) then
 DevSajad:set(Elite.."Set:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_,"true") 
@@ -1796,7 +1798,7 @@ local Sudo_Welcome = '•︙اهلا بك مجددا عزيزي المطور \n�
 local key = {
 {'↫ تحديث السورس •','↫ تحديث •'},
 {'↫ السيرفر •'},
-{'↫ مطور السورس •','↫ قناة السورس •'},
+{'↫ مطور السورس •','↫ قناة السورس •','↫ مبرمج السورس •'},
 {'↫  السورس •'},
 {'↫ رجوع •'},
 }
@@ -11555,6 +11557,19 @@ keyboard.inline_keyboard = {
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/tiv00&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
+--     Source Elite     --
+if text == "مبرمج السورس" and ChCheck(msg) or text == "مبرمج السورس" and ChCheck(msg) or text == "وين المبرمج" and ChCheck(msg) or text == "المبرمج" and ChCheck(msg) or text == "↫ مبرمج السورس •" and ChCheck(msg) then 
+Text = [[
+•︙[مبرمج السورس](https://t.me/KlKKP)
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '• مبرمج السورس',url="t.me/KlKKP"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/KlKKP&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 --     Source Elite     --
